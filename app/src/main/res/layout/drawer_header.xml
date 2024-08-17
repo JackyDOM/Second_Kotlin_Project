@@ -16,12 +16,14 @@
         android:backgroundTint="#CAC8C8">
 
         <ImageView
+            android:id="@+id/userImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/per"/>
     </androidx.cardview.widget.CardView>
 
     <TextView
+        android:id="@+id/textUsername"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
@@ -32,6 +34,7 @@
         android:textSize="15sp"/>
 
     <TextView
+        android:id="@+id/textUserEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="User Email"
