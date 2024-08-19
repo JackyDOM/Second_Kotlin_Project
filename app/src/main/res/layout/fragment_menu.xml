@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuScreen.MenuFragment">
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnFood"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="Food"/>
+
+        <Button
+            android:id="@+id/btnCafe"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="Cafe"/>
+
+        <Button
+            android:id="@+id/btnDessert"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:text="Dessert"/>
+
+    </LinearLayout>
+
+    <!-- FrameLayout to hold the fragment -->
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"/>
+
+</FrameLayout>

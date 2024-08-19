@@ -8,12 +8,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.example.secondproject.CartScreen.CartFragment
+import com.example.secondproject.MenuScreen.MenuFragment
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var buttonDrawerToggle: ImageButton
     private lateinit var navigationView: NavigationView
+    private  lateinit var fragment: Fragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,9 +45,9 @@ class MainActivity : AppCompatActivity() {
             val itemId: Int = item.itemId
 
             if(itemId == R.id.navMenu){
-                Toast.makeText(this, "Menu Click", Toast.LENGTH_LONG).show()
+                loadFragment(MenuFragment(), false)
             }else if(itemId == R.id.navCart){
-                Toast.makeText(this, "Cart Clicked", Toast.LENGTH_LONG).show()
+                loadFragment(CartFragment(), false)
             }else if(itemId == R.id.navFavorite){
                 Toast.makeText(this, "Favorite Clicked", Toast.LENGTH_LONG).show()
             }else if(itemId == R.id.navOrder){
@@ -60,9 +66,22 @@ class MainActivity : AppCompatActivity() {
 
             drawerLayout.close()
 
-            false
+            true
         }
 
+        // Load the default fragment when the app starts
+        loadFragment(MenuFragment(), true)
+    }
 
+    private fun loadFragment(fragment: Fragment, isAppInitialized: Boolean) {
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
+
+        if (isAppInitialized) {
+            fragmentTransaction.add(R.id.frameLayout, fragment)
+        } else {
+            fragmentTransaction.replace(R.id.frameLayout, fragment)
+        }
+        fragmentTransaction.commitAllowingStateLoss()
     }
 }
